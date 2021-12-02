@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="controllerContainer" :style="{left: this.left}">
+  <div class="robotController">
+    <div class="controllerContainer">
       <div class="titlePanel">
         <img src="../assets/T800.jpg" class="imgPanel"/>
         <div class="title">T-800控制器</div>
@@ -129,7 +129,7 @@
         </div>
       </div>
     </div>
-    <div class="functionContainer" :style="{left: parseInt(this.left) + 450 + 'px'}">
+    <div class="functionContainer">
       <div class="functionTitle">
         功能菜单
       </div>
@@ -250,7 +250,6 @@ export default {
     }
   },
   created () {
-    this.left = (window.innerWidth / 2 - 200) + 'px'
     this.getNowTime()
     setInterval(() => {
       this.getNowTime()
@@ -577,382 +576,394 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.controllerContainer{
-  position: absolute;
-  width: 400px;
-  height: 800px;
-  top: 50px;
-  border: 3px darkseagreen solid;
-  padding: 8px;
-  overflow-y: scroll;
+.robotController{
+  width: 100%;
+  height: 100%;
+  float: left;
+  display: flex;
+  justify-content: center;
 
-  .titlePanel{
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 10px;
+  .controllerContainer{
+    width: 400px;
+    height: 800px;
+    border: 3px dimgray solid;
+    padding: 8px;
+    overflow-y: scroll;
+    background-color: white;
+    margin-bottom: 20px;
+    float: left;
+    margin: 10px;
+    opacity: 0.9;
 
-    .imgPanel{
+    .titlePanel{
       display: inline-block;
-      height: 150px;
-      width: 150px;
+      margin-top: 30px;
+      margin-left: 10px;
+
+      .imgPanel{
+        display: inline-block;
+        height: 150px;
+        width: 150px;
+      }
+
+      .title{
+        display: inline-block;
+        font-size: 30px;
+        font-weight: bold;
+        margin-left: 30px;
+      }
     }
 
-    .title{
-      display: inline-block;
-      font-size: 30px;
-      font-weight: bold;
-      margin-left: 30px;
-    }
-  }
+    .inputPanel{
+      position: relative;
+      left: 42px;
+      top: 50px;
+      width: 300px;
 
-  .inputPanel{
-    position: relative;
-    left: 42px;
-    top: 50px;
-    width: 300px;
-
-    .selection{
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .textInputPanel{
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .markdownInputPanel{
-      width: 100%;
-      margin-bottom: 20px;
-    }
-
-    .imgInputPanel{
-      width: 100%;
-      margin-bottom: 20px;
-
-      .base64Input{
-        margin-top: 20px;
+      .selection{
+        width: 100%;
         margin-bottom: 20px;
       }
 
-      .fileSelect{
+      .textInputPanel{
         width: 100%;
+        margin-bottom: 20px;
       }
-    }
 
-    .newsInputPanel{
-      width: 100%;
-      margin-bottom: 20px;
-
-      .newsInput{
-        margin-top: 20px;
-      }
-    }
-
-    .templatecardInputPanel{
-      width: 100%;
-      margin-bottom: 20px;
-
-      .templateTypeSelection{
+      .markdownInputPanel{
         width: 100%;
+        margin-bottom: 20px;
       }
 
-      .sourceInputPanel{
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+      .imgInputPanel{
+        width: 100%;
+        margin-bottom: 20px;
 
-        & span{
+        .base64Input{
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        .fileSelect{
           width: 100%;
-          display: block;
-          font-weight: bold;
-        }
-
-        .sourceInput{
-          width: 48%;
-        }
-      }
-
-      .mainTitleInput{
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        & span{
-          width: 100%;
-          display: block;
-          font-weight: bold;
-        }
-
-        .mainInput{
-          width: 48%;
         }
       }
 
-      .emphasisContentInputPanel{
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+      .newsInputPanel{
+        width: 100%;
+        margin-bottom: 20px;
 
-        & span{
+        .newsInput{
+          margin-top: 20px;
+        }
+      }
+
+      .templatecardInputPanel{
+        width: 100%;
+        margin-bottom: 20px;
+
+        .templateTypeSelection{
           width: 100%;
-          display: block;
-          font-weight: bold;
         }
 
-        .emphasisInput{
-          width: 48%;
-        }
-
-        .emphasisSecondTitle{
+        .sourceInputPanel{
           margin-top: 10px;
-        }
-      }
-
-      .cardImageInputPanel{
-        margin-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        & span{
-          width: 100%;
-          display: block;
-          font-weight: bold;
-        }
-
-        .cardInput{
-          width: 48%;
-        }
-
-        .cardSecondTitle{
-          width: 100%;
-          height: 50px;
-          display: flex;
-          align-items: center;
-
-          & span{
-            width: auto;
-            margin-right: 58px;
-          }
-
-          ::v-deep.ant-btn{
-            margin-right: 5px;
-          }
-        }
-
-        .cardSecondInputPanel{
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          margin-top: 10px;
-
-          .cardSecondInput{
-            width: 48%;
-          }
-        }
-      }
-
-      .horizontalContentListInputPanel{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        .horizontalContentListInputTitle{
-          width: 100%;
-          height: 50px;
-          display: flex;
-          align-items: center;
 
           & span{
-            width: auto;
+            width: 100%;
+            display: block;
             font-weight: bold;
-            margin-right: 58px;
           }
 
-          ::v-deep.ant-btn{
-            margin-right: 5px;
-          }
-        }
-
-        .horizontalContentListLineOne{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          margin-top: 10px;
-
-          .horizontalInput{
+          .sourceInput{
             width: 48%;
           }
         }
 
-        .horizontalContentListLineTwo{
+        .mainTitleInput{
+          margin-top: 10px;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          margin-top: 10px;
-
-          .horizontalInput{
-            width: 48%;
-          }
-        }
-      }
-
-      .jumpListInputPanel{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-
-        .jumpListInputTitle{
-          width: 100%;
-          height: 50px;
-          display: flex;
-          align-items: center;
 
           & span{
-            width: auto;
+            width: 100%;
+            display: block;
             font-weight: bold;
-            margin-right: 100px;
           }
 
-          ::v-deep.ant-btn{
-            margin-right: 5px;
-          }
-        }
-
-        .jumpListInputLineOne{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          margin-top: 10px;
-
-          .jumpListInput{
+          .mainInput{
             width: 48%;
           }
         }
 
-        .jumpListInputLineTwo{
+        .emphasisContentInputPanel{
+          margin-top: 10px;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
-          margin-top: 10px;
 
-          .jumpListInput{
+          & span{
+            width: 100%;
+            display: block;
+            font-weight: bold;
+          }
+
+          .emphasisInput{
             width: 48%;
+          }
+
+          .emphasisSecondTitle{
+            margin-top: 10px;
+          }
+        }
+
+        .cardImageInputPanel{
+          margin-top: 10px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          & span{
+            width: 100%;
+            display: block;
+            font-weight: bold;
+          }
+
+          .cardInput{
+            width: 48%;
+          }
+
+          .cardSecondTitle{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            & span{
+              width: auto;
+              margin-right: 58px;
+            }
+
+            ::v-deep.ant-btn{
+              margin-right: 5px;
+            }
+          }
+
+          .cardSecondInputPanel{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .cardSecondInput{
+              width: 48%;
+            }
+          }
+        }
+
+        .horizontalContentListInputPanel{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          .horizontalContentListInputTitle{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            & span{
+              width: auto;
+              font-weight: bold;
+              margin-right: 58px;
+            }
+
+            ::v-deep.ant-btn{
+              margin-right: 5px;
+            }
+          }
+
+          .horizontalContentListLineOne{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .horizontalInput{
+              width: 48%;
+            }
+          }
+
+          .horizontalContentListLineTwo{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .horizontalInput{
+              width: 48%;
+            }
+          }
+        }
+
+        .jumpListInputPanel{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          .jumpListInputTitle{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            & span{
+              width: auto;
+              font-weight: bold;
+              margin-right: 100px;
+            }
+
+            ::v-deep.ant-btn{
+              margin-right: 5px;
+            }
+          }
+
+          .jumpListInputLineOne{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .jumpListInput{
+              width: 48%;
+            }
+          }
+
+          .jumpListInputLineTwo{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .jumpListInput{
+              width: 48%;
+            }
+          }
+        }
+
+        .cardActionInputPanel{
+          width: 100%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          & span{
+            width: 100%;
+            display: block;
+            font-weight: bold;
+          }
+
+          .cardActionInputLineOne{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .cardActionInput{
+              width: 48%;
+            }
+          }
+
+          .cardActionInputLinetwo{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            .cardActionInput{
+              width: 48%;
+            }
           }
         }
       }
 
-      .cardActionInputPanel{
+      .buttonPanel{
         width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
 
-        & span{
-          width: 100%;
-          display: block;
-          font-weight: bold;
+        .button{
+          width: 100px;
         }
-
-        .cardActionInputLineOne{
-          width: 100%;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          margin-top: 10px;
-
-          .cardActionInput{
-            width: 48%;
-          }
-        }
-
-        .cardActionInputLinetwo{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          margin-top: 10px;
-
-          .cardActionInput{
-            width: 48%;
-          }
-        }
-      }
-    }
-
-    .buttonPanel{
-      width: 100%;
-      display: flex;
-      justify-content: center;
-
-      .button{
-        width: 100px;
       }
     }
   }
-}
 
-.functionContainer{
-  position: absolute;
-  width: 400px;
-  height: 600px;
-  top: 250px;
-  border: 3px darkseagreen solid;
+  .functionContainer{
+    width: 400px;
+    height: 600px;
+    border: 3px dimgray solid;
+    background-color: white;
+    float: left;
+    margin: 10px;
+    opacity: 0.9;
 
-  .functionTitle{
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 25px;
-    margin-top: 8px;
-  }
-
-  .timeShower{
-    width: 100%;
-    text-align: center;
-
-    .time{
+    .functionTitle{
+      width: 100%;
+      text-align: center;
       font-weight: bold;
-      font-size: 50px;
+      font-size: 25px;
       margin-top: 8px;
-      margin-bottom: 8px;
     }
 
-    .timeTitle{
-      font-weight: bold;
-      font-size: 18px;
+    .timeShower{
+      width: 100%;
+      text-align: center;
+
+      .time{
+        font-weight: bold;
+        font-size: 50px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+
+      .timeTitle{
+        font-weight: bold;
+        font-size: 18px;
+      }
+    }
+
+    .functionPanel{
+      width: 100%;
+      margin-top: 20px;
+
+      .timeReminder{
+        padding: 8px;
+        font-weight: bold;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-evenly;
+      }
     }
   }
 
-  .functionPanel{
-    width: 100%;
-    margin-top: 20px;
+  /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+  ::-webkit-scrollbar
+  {
+    width: 5px;
+    background-color: darkgrey;
+  }
 
-    .timeReminder{
-      padding: 8px;
-      font-weight: bold;
-      font-size: 18px;
-      display: flex;
-      justify-content: space-evenly;
-    }
+
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb
+  {
+    background-color: azure;
   }
 }
-
-/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-::-webkit-scrollbar
-{
-  width: 5px;
-  background-color: darkgrey;
-}
-
-
-/*定义滑块 内阴影+圆角*/
-::-webkit-scrollbar-thumb
-{
-  background-color: azure;
-}
-
 </style>

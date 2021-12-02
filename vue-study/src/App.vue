@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <weChatRobotController></weChatRobotController>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import weChatRobotController from "./components/weChatRobotController";
 
 export default {
   name: 'App',
   components: {
-    weChatRobotController
   }
 }
 </script>
@@ -19,6 +17,6 @@ export default {
 #app{
   width: 100%;
   height: 100%;
-  background-color: dimgrey;
+  background-color: black;
 }
 </style>
