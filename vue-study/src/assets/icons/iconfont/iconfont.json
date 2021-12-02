@@ -1,0 +1,16 @@
+{
+  "id": "2982036",
+  "name": "TGboy001",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6762077",
+      "name": "机器人",
+      "font_class": "jiqiren",
+      "unicode": "e6ac",
+      "unicode_decimal": 59052
+    }
+  ]
+}
