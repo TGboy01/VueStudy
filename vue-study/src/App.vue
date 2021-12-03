@@ -8,13 +8,12 @@
 
 export default {
   name: 'App',
-  components: {
-  }
+  components: {}
 }
 </script>
 
-<style>
-#app{
+<style lang="scss" scoped>
+#app {
   width: 100%;
   height: 100%;
   background-color: black;
