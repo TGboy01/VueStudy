@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 import './assets/icons/iconfont/iconfont.css'
+import './assets/css/antdCursor.css'
 
 import helloWorld from "./components/HelloWorld";
 import weChatRobotController from "./components/weChatRobotController";

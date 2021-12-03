@@ -1,24 +1,20 @@
 <template>
   <div class="homePage">
     <div class="topContainer">
-      <div class="title">TGboy001 | 无聊树洞</div>
-      <div class="descriptionTitle">天空是无用且垂死的星辰</div>
-      <img class="topPic" src="../assets/topPic.png" draggable="false">
+      <div class="topShower">
+        <div class="title">TGboy | 无聊树洞</div>
+        <div class="descriptionTitle">天空是无用且垂死的星辰</div>
+        <img class="topPic" src="../assets/topPic.png" draggable="false">
+      </div>
       <div class="toolbar">
         <ul class="linkList">
           <li class="linkItem">
-            <router-link class="link" to="/">
+            <router-link class="link" to="/helloWorld">
               主页
             </router-link>
           </li>
           <li class="linkItem">
             <router-link class="link" to="/weChatRobotController">
-              <i class="iconfont icon-jiqiren" style="padding-right: 8px"></i>
-              微信机器人
-            </router-link>
-          </li>
-          <li class="linkItem">
-            <router-link class="link" to="/helloWorld">
               <i class="iconfont icon-jiqiren" style="padding-right: 8px"></i>
               微信机器人
             </router-link>
@@ -48,13 +44,21 @@ export default {
 <style lang="scss" scoped>
 .homePage::-webkit-scrollbar{
   width: 5px;
-  background-color: dimgray;
+  background-color: var(--highLightColor);
+}
+.homePage::-webkit-scrollbar-thumb{
+  background-color: black;
 }
 
 .homePage{
   width: 100%;
   height: 100%;
   overflow-y: scroll;
+  cursor: url("../assets/cursor/Cursor_hand.png"), auto;
+
+  --titleColor:#3B3433;
+  --highLightColor: #DDD6C8;
+  --darkLightColor: #BDAB92;
 
   .topContainer{
     width: 100%;
@@ -75,21 +79,19 @@ export default {
       right: -860px;
       font-family: 微软雅黑;
       font-size: 60px;
-      color: black;
+      color: var(--titleColor);
       z-index: 20;
-      cursor: default;
       user-select: none;
     }
 
     .descriptionTitle{
       position: relative;
       top: 120px;
-      right: -1110px;
+      right: -1005px;
       font-size: 30px;
       font-family: 微软雅黑;
-      color: black;
+      color: var(--titleColor);
       z-index: 20;
-      cursor: default;
       user-select: none;
     }
 
@@ -116,9 +118,10 @@ export default {
           height: 100%;
           float: left;
           font-size: 16px;
+          cursor: url("../assets/cursor/cursor_rays.png"), pointer;
 
           :hover{
-            color: lightsalmon;
+            color: var(--highLightColor);
             background-color: dimgray;
           }
 
@@ -128,6 +131,12 @@ export default {
             display: flex;
             align-items: center;
             padding: 0px 8px 0px 8px;
+            cursor: url("../assets/cursor/cursor_rays.png"), pointer;
+
+            :hover{
+              color: var(--highLightColor);
+              background-color: dimgray;
+            }
           }
         }
       }

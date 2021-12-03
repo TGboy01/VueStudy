@@ -2,13 +2,14 @@
   <div class="robotController">
     <div class="controllerContainer">
       <div class="titlePanel">
-        <img src="../assets/T800.jpg" class="imgPanel"/>
+        <img src="../assets/T800.jpg" draggable="false" class="imgPanel"/>
         <div class="title">T-800控制器</div>
       </div>
       <div class="inputPanel">
         <a-select class="selection"
                   placeholder="请选择发送消息类型"
                   v-model="selectedType"
+                  dropdownClassName="test"
                   :options="messegeType">
         </a-select>
         <div class="textInputPanel" v-show="selectedType === 'text'">
@@ -256,6 +257,7 @@ export default {
     }, 1000)
   },
   mounted () {
+    console.log(document.getElementsByClassName('ant-select-dropdown-menu-item'))
   },
   methods: {
     postToT800 () {
@@ -583,13 +585,18 @@ export default {
   display: flex;
   justify-content: center;
 
+  --titleColor:#3B3433;
+  --highLightColor: #DDD6C8;
+  --darkLightColor: #BDAB92;
+  --borderColor: #403736;
+
   .controllerContainer{
     width: 400px;
     height: 800px;
-    border: 3px dimgray solid;
+    border: 3px var(--borderColor) solid;
     padding: 8px;
     overflow-y: scroll;
-    background-color: white;
+    background-color: var(--highLightColor);
     margin-bottom: 20px;
     float: left;
     margin: 10px;
@@ -907,8 +914,8 @@ export default {
   .functionContainer{
     width: 400px;
     height: 600px;
-    border: 3px dimgray solid;
-    background-color: white;
+    border: 3px var(--borderColor) solid;
+    background-color: var(--highLightColor);
     float: left;
     margin: 10px;
     opacity: 0.9;
@@ -952,18 +959,29 @@ export default {
     }
   }
 
-  /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
-  ::-webkit-scrollbar
-  {
+  ::-webkit-scrollbar {
     width: 5px;
-    background-color: darkgrey;
+    background-color: var(--highLightColor);
   }
 
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--titleColor);
+  }
 
-  /*定义滑块 内阴影+圆角*/
-  ::-webkit-scrollbar-thumb
-  {
-    background-color: azure;
+  ::v-deep.ant-switch{
+    cursor: url("../assets/cursor/cursor_rays.png"), pointer;
+  }
+
+  ::v-deep.ant-switch:after{
+    cursor: url("../assets/cursor/cursor_rays.png"), pointer;
+  }
+
+  ::v-deep.ant-select-selection{
+    cursor: url("../assets/cursor/cursor_rays.png"), pointer;
+  }
+
+  ::v-deep.ant-btn{
+    cursor: url("../assets/cursor/cursor_rays.png"), pointer;
   }
 }
 </style>
